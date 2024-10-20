@@ -1,5 +1,5 @@
 % Define the path to your complete dataset
-datasetPath = "C:\mit-bih-arrhythmia-database-1.0.0\Data_Set";
+datasetPath = "C:\mit-bih-arrhythmia-database-1.0.0\Data_Set";  % change this path to the path in which you are storing Data Set 
 
 % Load the full dataset with imageDatastore
 fullDataset = imageDatastore(datasetPath, 'IncludeSubfolders', true, 'LabelSource', 'foldernames');
@@ -13,9 +13,9 @@ testRatio = 0.15;
 [trainImages, valTestImages] = splitEachLabel(fullDataset, trainRatio, 'randomized');
 [valImages, testImages] = splitEachLabel(valTestImages, valRatio / (valRatio + testRatio), 'randomized');
 % Define destination folders for train, val, and test sets
-trainFolder = "E:\Train_Set";
-valFolder = "E:\Validation_Set";
-testFolder = "E:\Test_Set";
+trainFolder = "E:\Train_Set";  %change this folder path to the path in which you want to save the train images
+valFolder = "E:\Validation_Set"; %change this folder path to the path in which you want to save validation images
+testFolder = "E:\Test_Set"; %change this folder path to the path in which you want to save test images
 
 % Create the folders and subfolders for each category
 categories = unique(fullDataset.Labels);  % Get unique categories/labels
